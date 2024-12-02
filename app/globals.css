@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: 330 100% 99%;
+  --foreground: 330 10% 15%;
+  --card: 330 100% 99%;
+  --card-foreground: 330 10% 15%;
+  --popover: 330 100% 99%;
+  --popover-foreground: 330 10% 15%;
+  --primary: 330 85% 60%;
+  --primary-foreground: 330 10% 98%;
+  --secondary: 330 30% 96%;
+  --secondary-foreground: 330 10% 15%;
+  --muted: 330 30% 96%;
+  --muted-foreground: 330 10% 45%;
+  --accent: 330 30% 96%;
+  --accent-foreground: 330 10% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 330 30% 92%;
+  --input: 330 30% 92%;
+  --ring: 330 85% 60%;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 330 30% 10%;
+  --foreground: 330 10% 98%;
+  --card: 330 30% 12%;
+  --card-foreground: 330 10% 98%;
+  --popover: 330 30% 12%;
+  --popover-foreground: 330 10% 98%;
+  --primary: 330 85% 70%;
+  --primary-foreground: 330 30% 10%;
+  --secondary: 330 30% 15%;
+  --secondary-foreground: 330 10% 98%;
+  --muted: 330 30% 15%;
+  --muted-foreground: 330 10% 65%;
+  --accent: 330 30% 15%;
+  --accent-foreground: 330 10% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 330 10% 98%;
+  --border: 330 30% 20%;
+  --input: 330 30% 20%;
+  --ring: 330 85% 70%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-mali;
+  }
+}
+
+@layer components {
+  .cute-card {
+    @apply rounded-2xl border-2 border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-card/50 backdrop-blur-sm;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  .sparkle {
+    @apply absolute w-1 h-1 bg-primary/50 rounded-full;
+    animation: sparkle 1.5s linear infinite;
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
